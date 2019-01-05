@@ -19,11 +19,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="71b-k0-dJG">
-                                <rect key="frame" x="20" y="40" width="335" height="487"/>
+                                <rect key="frame" x="20" y="40" width="335" height="458"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8v1-wA-9OC">
-                                <rect key="frame" x="20" y="597" width="265" height="50"/>
+                                <rect key="frame" x="20" y="597" width="335" height="50"/>
                                 <color key="backgroundColor" red="0.018645260479999998" green="0.4776622653" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="pxp-fi-73u"/>
@@ -36,48 +36,45 @@
                                     <action selector="generateTree:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rtg-GD-ABQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9pO-wP-6rJ">
-                                <rect key="frame" x="305" y="597" width="50" height="50"/>
-                                <color key="backgroundColor" red="0.018645260479999998" green="0.4776622653" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="9pO-wP-6rJ" secondAttribute="height" multiplier="1:1" id="7D5-vd-hf7"/>
-                                </constraints>
-                                <state key="normal">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="saveTree:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mhj-VO-fR9"/>
-                                </connections>
-                            </button>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="1" maxValue="12" translatesAutoresizingMaskIntoConstraints="NO" id="of4-Ir-CaP">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="11" translatesAutoresizingMaskIntoConstraints="NO" id="of4-Ir-CaP">
                                 <rect key="frame" x="18" y="547" width="339" height="31"/>
                                 <connections>
                                     <action selector="sliderDidChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="VUi-Af-WES"/>
                                 </connections>
                             </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vim-0B-egQ">
+                                <rect key="frame" x="20" y="518" width="30" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="nFp-HF-kyH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="8v1-wA-9OC" secondAttribute="bottom" constant="20" id="16j-EA-a4G"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8v1-wA-9OC" secondAttribute="trailing" constant="20" id="8Sb-nN-pAH"/>
+                            <constraint firstItem="Vim-0B-egQ" firstAttribute="top" secondItem="71b-k0-dJG" secondAttribute="bottom" constant="20" id="8py-EF-AkI"/>
                             <constraint firstItem="8v1-wA-9OC" firstAttribute="top" secondItem="of4-Ir-CaP" secondAttribute="bottom" constant="20" id="9Vo-Jr-1N9"/>
-                            <constraint firstItem="9pO-wP-6rJ" firstAttribute="height" secondItem="8v1-wA-9OC" secondAttribute="height" id="DjW-lg-ny6"/>
                             <constraint firstItem="8v1-wA-9OC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="JGd-tH-Hgq"/>
                             <constraint firstItem="71b-k0-dJG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="M0n-Ra-A8Q"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9pO-wP-6rJ" secondAttribute="trailing" constant="20" id="OQm-hC-BhU"/>
+                            <constraint firstItem="of4-Ir-CaP" firstAttribute="top" secondItem="Vim-0B-egQ" secondAttribute="bottom" constant="8" id="Ufn-1C-Gc3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="of4-Ir-CaP" secondAttribute="trailing" constant="20" id="aAE-em-Z9K"/>
+                            <constraint firstItem="of4-Ir-CaP" firstAttribute="leading" secondItem="Vim-0B-egQ" secondAttribute="leading" id="b5J-Z4-L2I"/>
                             <constraint firstItem="of4-Ir-CaP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="bv6-B5-ksA"/>
-                            <constraint firstItem="9pO-wP-6rJ" firstAttribute="leading" secondItem="8v1-wA-9OC" secondAttribute="trailing" constant="20" id="cQD-qM-Ioh"/>
-                            <constraint firstItem="of4-Ir-CaP" firstAttribute="top" secondItem="71b-k0-dJG" secondAttribute="bottom" constant="20" id="iuJ-tq-YwE"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="9pO-wP-6rJ" secondAttribute="bottom" constant="20" id="lLS-oF-wbC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="71b-k0-dJG" secondAttribute="trailing" constant="20" id="tli-PV-hXt"/>
                             <constraint firstItem="71b-k0-dJG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="zui-Xw-IF8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="branchDepthLabel" destination="Vim-0B-egQ" id="K3g-Yt-CXX"/>
                         <outlet property="drawingView" destination="71b-k0-dJG" id="BUg-vN-kYB"/>
                         <outlet property="generateButton" destination="8v1-wA-9OC" id="lRr-Cm-qx2"/>
-                        <outlet property="saveButton" destination="9pO-wP-6rJ" id="Mqr-DD-aKp"/>
+                        <outlet property="leftConstraint" destination="b5J-Z4-L2I" id="I8y-zw-xBY"/>
+                        <outlet property="slider" destination="of4-Ir-CaP" id="zNd-nx-3R8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

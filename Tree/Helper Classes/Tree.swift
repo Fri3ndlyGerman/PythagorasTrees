@@ -13,6 +13,8 @@ class Tree: Drawable, TreeDelegate {
     var squares = [Square]()
     var branchesFinished: Int = 0
     var targetBranchDepth: Int = 0
+    var parentHeight: CGFloat = 0
+    var parentWidth: CGFloat = 0
     
     init(targetBranchDepth: Int, parentView: UIView) {
         super.init(parentView: parentView)
@@ -40,31 +42,6 @@ class Tree: Drawable, TreeDelegate {
         }
     }
     
-    func formPath() {
-        let layer = CAShapeLayer()
-        let path = UIBezierPath()
-        squares.forEach { (square) in
-            path.move(to: square.points[0])
-            square.points.forEach({ (point) in
-                path.addLine(to: point)
-            })
-            path.close()
-        }
-        
-        layer.path = path.cgPath
-        layer.strokeColor = UIColor.black.cgColor
-        layer.lineWidth = 1
-        layer.fillColor = UIColor.clear.cgColor
-        
-        if let sublayers = self.parentView.layer.sublayers {
-            sublayers.forEach { (layer) in
-                layer.removeFromSuperlayer()
-            }
-        }
-        
-        self.parentView.layer.addSublayer(layer)
-    }
-    
     func findOuterPoints() {
         var xUpperBound: CGFloat = 0.00
         var yUpperBound: CGFloat = 0.00
@@ -82,8 +59,7 @@ class Tree: Drawable, TreeDelegate {
         let deltaX = xUpperBound - xLowerBound
         let deltaY = yUpperBound - yLowerBound
         let aspectRatio = AspectRatio(width: deltaX, height: deltaY)
-        let availableWidth = self.parentView.frame.width
-        let availableHeight = aspectRatio.height(for: availableWidth)
+        let availableHeight = aspectRatio.height(for: parentWidth)
         
         squares.forEach { (square) in
             var points = [CGPoint]()
@@ -95,18 +71,18 @@ class Tree: Drawable, TreeDelegate {
                 let normalizedDeltaX = pointDeltaX / deltaX
                 let normalizedDeltaY = pointDeltaY / deltaY
                 
-                let centeringPuffer = ((self.parentView.frame.height - availableHeight) / 2)
-                let newX = (availableWidth * normalizedDeltaX)
+                let centeringPuffer = ((parentHeight - availableHeight) / 2)
+                let newX = (parentWidth * normalizedDeltaX)
                 let newY = availableHeight - (availableHeight * normalizedDeltaY) + centeringPuffer
                 
                 points.append(CGPoint(x: newX, y: newY))
-                // Normalize point here
             })
             
             square.points = points
+            self.addToPath(points: points)
         }
         
-        formPath()
+        self.draw()
     }
 }
 

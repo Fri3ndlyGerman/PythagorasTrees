@@ -20,8 +20,8 @@ class Square {
     var parentTree: Tree = tree!
     
     public init() {
-        self.bottomLeft = CGPoint(x: -10, y: -60)
-        self.bottomRight = CGPoint(x: 10, y: -60)
+        self.bottomLeft = CGPoint(x: -10, y: 0)
+        self.bottomRight = CGPoint(x: 10, y: 0)
         self.findTopPoints()
     }
     

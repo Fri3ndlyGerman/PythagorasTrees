@@ -12,6 +12,7 @@ import UIKit
 class AspectRatio {
     var width: CGFloat
     var height: CGFloat
+    var constant: CGFloat
     
     static let standart = AspectRatio(width: 16, height: 9)
     static let wideScreenMonitor = AspectRatio(width: 21, height: 9)
@@ -20,6 +21,7 @@ class AspectRatio {
     init(width: CGFloat, height: CGFloat) {
         self.width = width
         self.height = height
+        self.constant = width / height
     }
     
     func width(for height: CGFloat) -> CGFloat {

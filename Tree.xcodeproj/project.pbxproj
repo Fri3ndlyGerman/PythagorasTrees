@@ -70,7 +70,6 @@
 			children = (
 				26E30D7621E10D0800E5F429 /* AppDelegate.swift */,
 				26E30D7821E10D0800E5F429 /* ViewController.swift */,
-				26E30D8821E10E9F00E5F429 /* Extensions.swift */,
 				26EB26AA21E151EE00365AC7 /* Helper Classes */,
 				26E30D7A21E10D0800E5F429 /* Main.storyboard */,
 				26E30D7F21E10D0900E5F429 /* LaunchScreen.storyboard */,
@@ -89,6 +88,7 @@
 				26EB269C21E119C600365AC7 /* Square.swift */,
 				26EB26A021E1210500365AC7 /* Triangle.swift */,
 				26EB269E21E11C6F00365AC7 /* Vector.swift */,
+				26E30D8821E10E9F00E5F429 /* Extensions.swift */,
 			);
 			path = "Helper Classes";
 			sourceTree = "<group>";

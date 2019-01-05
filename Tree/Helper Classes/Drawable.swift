@@ -35,18 +35,20 @@ class Drawable: UIBezierPath {
     }
     
     func draw() {
-        if let sublayers = self.parentView.layer.sublayers {
-            sublayers.forEach { (layer) in
-                layer.removeFromSuperlayer()
+        DispatchQueue.main.async {
+            if let sublayers = self.parentView.layer.sublayers {
+                sublayers.forEach { (layer) in
+                    layer.removeFromSuperlayer()
+                }
             }
+            
+            let shapeLayer = CAShapeLayer()
+            shapeLayer.path = self.cgPath
+            shapeLayer.strokeColor = UIColor.black.cgColor
+            shapeLayer.lineWidth = 1.00
+            shapeLayer.fillColor = UIColor.clear.cgColor
+            
+            self.parentView.layer.addSublayer(shapeLayer)
         }
-        
-        let shapeLayer = CAShapeLayer()
-        shapeLayer.path = self.cgPath
-        shapeLayer.strokeColor = UIColor.black.cgColor
-        shapeLayer.lineWidth = 1.00
-        shapeLayer.fillColor = UIColor.clear.cgColor
-        
-        self.parentView.layer.addSublayer(shapeLayer)
     }
 }
