@@ -8,13 +8,35 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+var tree: Tree?
+var targetBranchDepth = 0
 
+class ViewController: UIViewController {
+    private var desiredBranchDepth: Int = 5
+    
+    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var generateButton: UIButton!
+    @IBOutlet weak var drawingView: UIView!
+    
+    @IBAction func sliderDidChange(_ sender: UISlider) {
+        desiredBranchDepth = Int(sender.value)
+    }
+    
+    @IBAction func generateTree(_ sender: UIButton) {
+        targetBranchDepth = self.desiredBranchDepth
+        tree = Tree(targetBranchDepth: targetBranchDepth, parentView: drawingView)
+        tree?.firstSquare()
+    }
+    
+    @IBAction func saveTree(_ sender: UIButton) {
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        generateButton.roundCorners(.all, radius: 10)
+        saveButton.roundCorners(.all, radius: 10)
     }
-
-
 }
 
